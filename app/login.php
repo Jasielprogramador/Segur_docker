@@ -1,0 +1,98 @@
+<?php 
+
+session_start();
+
+	include("connection.php");
+
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$user_name = $_POST['eizena'];
+		$password = $_POST['pasahitza'];
+
+		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		{
+			//read from database
+			$query = "select * from Erregistroa where IzenAbizen = '$user_name' and pasahitza = '$password'";
+			$result = mysqli_query($con, $query);
+
+			if($result)
+			{
+				if($result && mysqli_num_rows($result) > 0)
+				{
+					$user_data = mysqli_fetch_assoc($result);
+
+					$_SESSION['user_id'] = $user_data['user_id'];
+					header("Location: db.php");
+					die;
+		
+				}
+			}
+			
+			echo "wrong username or password!";
+		}else
+		{
+			echo "wrong username or password!";
+		}
+	}
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+
+	<style type="text/css">
+	
+	#text{
+
+		height: 25px;
+		border-radius: 5px;
+		padding: 4px;
+		border: solid thin #aaa;
+		width: 100%;
+	}
+
+	#button{
+
+		padding: 10px;
+		width: 100px;
+		color: white;
+		background-color: lightblue;
+		border: none;
+	}
+
+	#box{
+
+		background-color: grey;
+		margin: auto;
+		width: 300px;
+		padding: 20px;
+	}
+
+	</style>
+
+	<div id="box">
+		
+		<form method="post">
+			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
+			
+			<p><label for="izena">Erabiltzaile izena:</label><br>
+			<input id="text" type="text" name="eizena"><br><br>
+
+			
+			<p><label for="izena">Pasahitza:</label><br>
+			<input id="text" type="password" name="pasahitza"><br><br>
+			
+
+			<input id="button" type="submit" value="Login"><br><br>
+
+		</form>
+	</div>
+</body>
+</html>
