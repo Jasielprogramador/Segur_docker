@@ -72,16 +72,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
 
 			<p><label for="izena"¡>Liburuaren isbn:</label><br>
-			<input id="text" type="text" name="isbn"><br><br>
+			<input id="text" type="text" name="isbn" placeholder ="XXX-X-XXX-XXXXX-X"><br><br>
 
 			<p><label for="izena"¡>Liburuaren izena:</label><br>
-			<input id="text" type="text" name="izena"><br><br>
+			<input id="text" type="text" name="izena" placeholder="Liburu berria"><br><br>
 
 			<p><label for="izena">Liburuaren editoriala:</label><br>
-			<input id="text" type="text" name="editoriala"><br><br>
+			<input id="text" type="text" name="editoriala" placeholder="Editorialaren izena"><br><br>
 
 			<p><label for="izena">Liburuaren salmenta kopurua:</label><br>
-			<input id="text" type="text" name="salmentak"><br><br>
+			<input id="text" type="text" name="salmentak" placeholder="34224"><br><br>
 
 
 			<input id="button" type="submit" value="Bidali"><br><br>
