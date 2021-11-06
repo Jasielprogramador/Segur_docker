@@ -83,11 +83,11 @@ session_start();
 			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
 			
 			<p><label for="izena">Erabiltzaile izena:</label><br>
-			<input id="text" type="text" name="eizena"><br><br>
+			<input id="text" type="text" name="eizena" placeholder="Erabiltzailea"><br><br>
 
 			
 			<p><label for="izena">Pasahitza:</label><br>
-			<input id="text" type="password" name="pasahitza"><br><br>
+			<input id="text" type="password" name="pasahitza" placeholder="Pasahitza"><br><br>
 			
 
 			<input id="button" type="submit" value="Login"><br><br>
