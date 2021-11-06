@@ -25,8 +25,8 @@
 	<tr>
 		<th>id</th>
 		<th>Izen Abizenak</th>
-		<th>Aprobatu Kopurua</th>
-		<th>Matrikula Kopurua</th>
+		<th>Editoriala</th>
+		<th>Salmentak</th>
 		<th>Editatu</th>
 	</tr>
 	<?php
