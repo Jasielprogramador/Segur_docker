@@ -24,7 +24,7 @@
 <table id="tabla">
 	<tr>
 		<th>isbn</th>
-		<th>Izen Abizenak</th>
+		<th>Izena</th>
 		<th>Editoriala</th>
 		<th>Salmentak</th>
 		<th>Editatu</th>
