@@ -61,7 +61,7 @@ CREATE TABLE `liburuak` (
 --
 
 INSERT INTO `liburuak` (`isbn`, `izena`, `editoriala`, `salmentak`) VALUES
-(12, 'Asier', 'alaya', 11),
+(12, 'La piramide roja', 'alaya', 11),
 (1890, '1984', 'Libros de bolsillo', 110000),
 (98988, 'Icaria', 'Editorial premios planeta', 33333),
 (98977, 'Bolsas de viaje ', 'Julio Verne', 89898),
