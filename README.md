@@ -7,8 +7,8 @@
 2. `cd Segur_docker`
 3. `sudo docker build -t "web" .`
 4. `sudo docker-compose up`
-5. [phpmyadmin ireki](https://localhost:8890)
+5. [phpmyadmin ireki](localhost:8890)
 6. User="admin" password="test"
 7. "database" klikatu, ondoren "importar" klikatu, ondoren "examinar" klikatu, eta klonatutako repoaren barnean dagoen "database.sql" aukeratu, azkenik "continuar" klikatu
-8. [Zure web-a ireki](https://localhost:81)
+8. [Zure web-a ireki](localhost:81)
 9. web-a ikusten amaitzen duzunean beste terminal batetik: `sudo docker-compose down`
