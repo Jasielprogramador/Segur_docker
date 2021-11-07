@@ -3,7 +3,7 @@
 
 ## Egileak: Janire Harana, Eneko Perez eta Asier Rosa
 
-1.`git clone https://github.com/Jasielprogramador/Segur_docker.git`
+1. `git clone https://github.com/Jasielprogramador/Segur_docker.git`
 2. `cd Segur_docker`
 3. `sudo docker build -t "web" .`
 4. `sudo docker-compose up`
