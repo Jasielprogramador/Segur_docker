@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<div id="box">
 		
 		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
+			<div style="font-size: 20px;margin: 10px;color: white;">Gehitu</div>
 
 			<p><label for="izena"¡>Liburuaren isbn:</label><br>
 			<input id="text" type="text" name="isbn" placeholder ="XXX-X-XXX-XXXXX-X"><br><br>
