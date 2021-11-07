@@ -1,19 +1,13 @@
 
-# Docker LAMP
-Linux + Apache + MariaDB (MySQL) + PHP 7.2 on Docker Compose. Mod_rewrite enabled by default.
+# Web-a
 
-## Instructions
+## Egileak: Janire Harana, Eneko Perez eta Asier Rosa
 
-Enter the following command to start your containers:
-```bash
-$ docker-compose up -d
-```
-
-To stop them, use this:
-```bash
-$ docker-compose stop
-```
-
-Feel free to make pull requests and help to improve this.
-
-If you are looking for phpMyAdmin, take a look at [this](https://github.com/celsocelante/docker-lamp/issues/2).
+1.Code botoia klikatu eta https edo ssh bidez repositorioa klonatu terminalaren bidez `git clone https://github.com/Jasielprogramador/Segur_docker.git´
+2.´cd Segur_docker´
+3.´sudo docker build -t "web" .
+4.´sudo docker compose up´
+5.[phpmyadmin ireki](https://localhost:8890)
+6.User="admin" password="test"
+7."database" klikatu, ondoren "importar" klikatu, ondoren "examinar" klikatu, eta klonatutako repoaren barnean dagoen "database.sql" aukeratu, azkenik "continuar" klikatu
+8.[Zure web-a ireki](https://localhost:81)

@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: db
--- Tiempo de generación: 05-11-2021 a las 13:44:37
--- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
--- Versión de PHP: 7.4.20
+-- Host: db
+-- Generation Time: Nov 07, 2021 at 09:23 AM
+-- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `database`
+-- Database: `database`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Erregistroa`
+-- Table structure for table `Erregistroa`
 --
 
 CREATE TABLE `Erregistroa` (
@@ -37,7 +37,7 @@ CREATE TABLE `Erregistroa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `Erregistroa`
+-- Dumping data for table `Erregistroa`
 --
 
 INSERT INTO `Erregistroa` (`IzenAbizen`, `nan`, `telefonoa`, `JaiotzeData`, `email`, `pasahitza`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `Erregistroa` (`IzenAbizen`, `nan`, `telefonoa`, `JaiotzeData`, `ema
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `liburuak`
+-- Table structure for table `liburuak`
 --
 
 CREATE TABLE `liburuak` (
@@ -57,18 +57,22 @@ CREATE TABLE `liburuak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `liburuak`
+-- Dumping data for table `liburuak`
 --
 
 INSERT INTO `liburuak` (`isbn`, `izena`, `editoriala`, `salmentak`) VALUES
-(12, 'Asier', 'alaya', 11);
+(12, 'Asier', 'alaya', 11),
+(1890, '1984', 'Libros de bolsillo', 110000),
+(98988, 'Icaria', 'Editorial premios planeta', 33333),
+(98977, 'Bolsas de viaje ', 'Julio Verne', 89898),
+(99999, 'El gato Negro', 'Poe obras clasicas', 11111);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `Erregistroa`
+-- Indexes for table `Erregistroa`
 --
 ALTER TABLE `Erregistroa`
   ADD PRIMARY KEY (`nan`);
