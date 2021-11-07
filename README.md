@@ -11,4 +11,5 @@
 6. User="admin" password="test"
 7. "database" klikatu, ondoren "importar" klikatu, ondoren "examinar" klikatu, eta klonatutako repoaren barnean dagoen "database.sql" aukeratu, azkenik "continuar" klikatu
 8. [Zure web-a ireki](http://localhost:81)
-9. web-a ikusten amaitzen duzunean beste terminal batetik: `sudo docker-compose down`
+9. Erabiltzailea=asierrosa eta pasahitza=asier123
+10. web-a ikusten amaitzen duzunean beste terminal batetik: `sudo docker-compose down`
