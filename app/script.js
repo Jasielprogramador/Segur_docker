@@ -1,9 +1,23 @@
+
 function email(mail) { 
     var emaitza=false;
-    if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)){
+    const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (res.test(mail)){
         emaitza=true;
     } else {
         alert ("emaila txarto idatzita dago");
+    }
+    return emaitza;
+}
+
+function izena(izen){
+    var emaitza = false;
+    if (/[a-zA-Z]/.test(izen)){
+        emaitza=true;
+    }
+    else{
+        window.alert("izena gaizki dago");
     }
     return emaitza;
 }
@@ -47,8 +61,9 @@ function konprobatu() {
     var dni = document.getElementById("nan").value;
     var emaila = document.getElementById("email").value;
     var tel = document.getElementById("telefonoa").value;
+    var iz = document.getElementById("izena").value;
     
-    if(nan(dni) && email(emaila) && telefono(tel)){
+    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel)){
         document.erregistroa.submit();
     }
 
