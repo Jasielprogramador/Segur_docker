@@ -70,29 +70,29 @@ session_start();
 
 	<div id="box">
 		
-		<form method="post">
+		<form method="post" name="erregistroa">
 			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
 
 			<p><label for="izena">Erabiltzaile izena:</label><br>
-			<input id="text" type="text" name="user_name"><br><br>
+			<input id="izena" type="text" name="user_name"><br><br>
 
 			<p><label for="nan">Nan:</label><br>
-			<input id="text" type="text" name="nan"><br><br>
+			<input id="nan" type="text" name="nan"><br><br>
 
 			<p><label for="telefonoa">Telefonoa:</label><br>
-			<input id="text" type="text" name="telefonoa"><br><br>
+			<input id="telefonoa" type="text" name="telefonoa"><br><br>
 
 			<p><label for="jaiotzeData">Jaiotze Data:</label><br>
-			<input id="text" type="text" name="jaiotzeData"><br><br>
+			<input id="jaiotzeData" type="text" name="jaiotzeData"><br><br>
 
 			<p><label for="email">email:</label><br>
-			<input id="text" type="text" name="email"><br><br>
+			<input id="email" type="text" name="email"><br><br>
 
 			<p><label for="izena">Pasahitza	:</label><br>
-			<input id="text" type="password" name="password"><br><br>
+			<input id="pasahitza" type="password" name="password"><br><br>
 
 
-			<input id="button" type="submit" value="Signup" onclick="konprobaketa()"><br><br>
+			<input id="button" type="submit" value="Signup" onclick="konprobatu()"><br><br>
 
 			<a href="login.php">Click to Login</a><br><br>
 
