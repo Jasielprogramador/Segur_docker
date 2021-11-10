@@ -30,10 +30,10 @@ session_start();
 				}
 			}
 			
-			echo "wrong username or password!";
+			echo "Erabiltzaile edo pasahitz okerra";
 		}else
 		{
-			echo "wrong username or password!";
+			echo "Erabiltzaile edo pasahitz okerra";
 		}
 	}
 
@@ -91,6 +91,8 @@ session_start();
 			
 
 			<input id="button" type="submit" value="Login"><br><br>
+
+			<a href="signup.php">Click to Signup</a><br><br>
 
 		</form>
 	</div>
