@@ -13,3 +13,13 @@
 8. [Zure web-a ireki](http://localhost:81)
 9. Erabiltzailea=asierrosa eta pasahitza=asier123
 10. web-a ikusten amaitzen duzunean beste terminal batetik: `sudo docker-compose down`
+
+
+LISTA DE COSAS K HAY K HACER (PARA K ESTE TODO BIEN)
+1-sql injekzioa -> O
+2-Autentifikazioa galtzea -> X
+3-Datuak azaltzea -> X
+5-Sarbide kontrola haustea -> O
+6-Segurtasun konfigurazio okerra -> X
+7-Komandoen sekuentzia leku gurutzatuetan -> O
+10-Logging eta monitorizazio ez nahikoak -> X

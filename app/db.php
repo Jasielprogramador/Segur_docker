@@ -87,6 +87,7 @@
 	document.getElementById('button1').onclick = function() {
 
 		location.href = "logout.php";
+
    	}
 
    	document.getElementById('button2').onclick = function() {

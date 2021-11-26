@@ -2,7 +2,6 @@
 
 	function isLoginSessionExpired() {
 
-
 		$current_time = time(); 
 		$login_session_duration = 60;
 
@@ -21,6 +20,7 @@
 	function resetTimer(){
 		echo ("ESTAMOS DENTRO PAPU");
 		$_COOKIE['loggedin_time'] = time();
+		return time();
 	}
 
 ?>
