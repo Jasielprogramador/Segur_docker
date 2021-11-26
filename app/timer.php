@@ -1,19 +1,26 @@
 <?php
 
 	function isLoginSessionExpired() {
-		$login_session_duration = 10; 
+
+
 		$current_time = time(); 
+		$login_session_duration = 60;
 
 		echo time() - $_COOKIE['loggedin_time'];
-		echo("TATATA");
+		echo("--------");
 		echo $login_session_duration;
 	
 		if(isset($_COOKIE['loggedin_time']) and isset($_COOKIE["user_id"])){  
-			if(((time() - $_COOKIE['loggedin_time']) > $login_session_duration)){ 
+			if(((time() - $_COOKIE['loggedin_time']) > $login_session_duration)){
 				return true; 
 			} 
 		}
 		return false;
+	}
+
+	function resetTimer(){
+		echo ("ESTAMOS DENTRO PAPU");
+		$_COOKIE['loggedin_time'] = time();
 	}
 
 ?>

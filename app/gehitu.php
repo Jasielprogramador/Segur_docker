@@ -8,6 +8,7 @@
 	include("connection.php");
 	require_once('timer.php');
 
+
 	if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 		$isbn = $_POST['isbn'];
@@ -33,7 +34,8 @@
 
 
 	if(isLoginSessionExpired()){
-		header("Location:logout.php");
+		echo '<script type="text/javascript">location.href="logout.php"</script>';
+		exit;
 	}
 		
 ?>

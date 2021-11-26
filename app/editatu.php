@@ -37,7 +37,7 @@
 	<?php
 
 	include("connection.php");
-
+	require_once('timer.php');
 
 	$isbn = $_GET["isbn"];
 
@@ -59,6 +59,11 @@
 	}
 	else{
 		echo "0 result";
+	}
+
+	if(isLoginSessionExpired()){
+		echo '<script type="text/javascript">location.href="logout.php"</script>';
+		exit;
 	}
 
 	

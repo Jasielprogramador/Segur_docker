@@ -2,6 +2,7 @@
 
 
 	include("connection.php");
+	require_once('timer.php');
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
@@ -32,6 +33,12 @@
 
 		}
 	}
+
+	if(isLoginSessionExpired()){
+		echo '<script type="text/javascript">location.href="logout.php"</script>';
+		exit;
+	}
+	
 ?>
 
 
