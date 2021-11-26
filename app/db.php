@@ -1,3 +1,10 @@
+<?php 
+	if(!isset($_COOKIE["user_id"])){
+		exit;
+	}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,36 +36,44 @@
 		<th>Salmentak</th>
 		<th>Editatu</th>
 	</tr>
+
+
+
 	<?php
 
+		include("connection.php");
+		require_once('timer.php');
 
-	include("connection.php");
-
-	$query = "SELECT * FROM liburuak";
-	$result = mysqli_query($con, $query);
+		$query = "SELECT * FROM liburuak";
+		$result = mysqli_query($con, $query);
 
 
-	if($result-> num_rows > 0){
-		while($row = mysqli_fetch_array($result)){
+		if($result-> num_rows > 0){
+			while($row = mysqli_fetch_array($result)){
 
-			$isbn = $row["isbn"];
-			$izena = $row["izena"];
-			$editoriala = $row["editoriala"];
-			$salmentak = $row["salmentak"];
+				$isbn = $row["isbn"];
+				$izena = $row["izena"];
+				$editoriala = $row["editoriala"];
+				$salmentak = $row["salmentak"];
 
-			echo "<tr><td>" . $isbn . "</td><td>" . $izena . "</td><td>" . $editoriala . "</td><td>" . $salmentak . "</td><td>" . "<a href='editatu.php?isbn=$isbn'>editatu</a>" . "</td></tr>";
+				echo "<tr><td>" . $isbn . "</td><td>" . $izena . "</td><td>" . $editoriala . "</td><td>" . $salmentak . "</td><td>" . 
+				"<a href='editatu.php?isbn=$isbn'>editatu</a>" . "</td></tr>";
+			}
+
 		}
-
-
-	}
-	else{
-		echo "0 result";
-	}
-
-	
+		else{
+			echo "Ez da ezer aurkitu";
+		}
+			
+		if(isLoginSessionExpired()){
+			header("Location:logout.php");
+			exit;
+		}
+		
 	?>
 
 </table>
+
 
 <div class ="flex">
 	

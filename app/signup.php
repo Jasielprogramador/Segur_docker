@@ -1,5 +1,4 @@
 <?php 
-session_start();
 
 	include("connection.php");
 
@@ -13,11 +12,11 @@ session_start();
 		$jaiotzeData = $_POST['jaiotzeData'];
 		$email = $_POST['email'];
 
-		$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
+		$query = "SELECT * FROM Erregistroa WHERE nan='$nan' and ";
 		$result = mysqli_query($con, $query);
 
 		if ($result && mysqli_num_rows($result) > 0){
-			echo "nan hori beste erabiltzaile batena da";
+			echo "erabiltzailea jada erregistratuta dago";
 		}else{
 
 			//save to database

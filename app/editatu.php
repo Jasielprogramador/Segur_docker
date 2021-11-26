@@ -1,3 +1,9 @@
+<?php 
+	if(!isset($_COOKIE["user_id"])){
+		exit;
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

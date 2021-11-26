@@ -1,31 +1,40 @@
 <?php
 
-	session_start();
+	if(!isset($_COOKIE["user_id"])){
+		exit;
+	}
+
 
 	include("connection.php");
+	require_once('timer.php');
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+	if($_SERVER['REQUEST_METHOD'] == "POST"){
 
+		$isbn = $_POST['isbn'];
+		$izena = $_POST['izena'];
+		$editoriala = $_POST['editoriala'];
+		$salmentak = $_POST['salmentak'];
 
-	$isbn = $_POST['isbn'];
-	$izena = $_POST['izena'];
-	$editoriala = $_POST['editoriala'];
-	$salmentak = $_POST['salmentak'];
+		if(!empty($izena) && !empty($isbn) && !empty($editoriala) && !empty($salmentak)){
 
-	if(!empty($izena) && !empty($isbn) && !empty($editoriala) && !empty($salmentak)){
+			$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak)";
+			$result = mysqli_query($con, $query);
 
-		$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak)";
-		$result = mysqli_query($con, $query);
-
-		header("Location: db.php");
-		die;
-		
+			header("Location: db.php");
+			exit;
+			
 	}
 	else
 		{
 			echo "Please enter some valid information!";
 		}
-}
+	}
+
+
+
+	if(isLoginSessionExpired()){
+		header("Location:logout.php");
+	}
 		
 ?>
 

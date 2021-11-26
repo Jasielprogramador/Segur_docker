@@ -1,16 +1,15 @@
 <?php 
 
-session_start();
-
 	include("connection.php");
-
-
-
+	
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
 		$user_name = $_POST['eizena'];
 		$password = $_POST['pasahitza'];
+
+		//Cookiaren bizitza denbora definitzeko
+		$biHilabetetan = 60 * 60 * 24 * 60 + time();
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
@@ -22,26 +21,21 @@ session_start();
 			{
 				if($result && mysqli_num_rows($result) > 0)
 				{
-					$user_data = mysqli_fetch_assoc($result);
+					$row = mysqli_fetch_array($result);
+					$nan = $row["nan"];
 
-					$_SESSION['loggedin_time'] = time();  
+					//Definimos las cookies 
+					setcookie("user_id",$nan,$biHilabetetan);
+					setcookie("loggedin_time",time(),$biHilabetetan);
 
-					$_SESSION['user_id'] = $user_data['user_id'];
+					header("Location:db.php");
 				}
 			}
-			
 			echo "Erabiltzaile edo pasahitz okerra";
+			
 		}else
 		{
 			echo "Erabiltzaile edo pasahitz okerra";
-		}
-	}
-
-	if(isset($_SESSION["user_id"])) {
-		if(!isLoginSessionExpired()) {
-			header("Location: db.php");
-		} else {
-			header("Location:logout.php");
 		}
 	}
 
