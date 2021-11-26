@@ -5,6 +5,7 @@ session_start();
 	include("connection.php");
 
 
+
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
@@ -23,10 +24,9 @@ session_start();
 				{
 					$user_data = mysqli_fetch_assoc($result);
 
+					$_SESSION['loggedin_time'] = time();  
+
 					$_SESSION['user_id'] = $user_data['user_id'];
-					header("Location: db.php");
-					die;
-		
 				}
 			}
 			
@@ -34,6 +34,14 @@ session_start();
 		}else
 		{
 			echo "Erabiltzaile edo pasahitz okerra";
+		}
+	}
+
+	if(isset($_SESSION["user_id"])) {
+		if(!isLoginSessionExpired()) {
+			header("Location: db.php");
+		} else {
+			header("Location:logout.php");
 		}
 	}
 
