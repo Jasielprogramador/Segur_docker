@@ -13,19 +13,23 @@ session_start();
 		$jaiotzeData = $_POST['jaiotzeData'];
 		$email = $_POST['email'];
 
-		$erabiltzaileaBilatu = "SELECT * FROM Erregistroa WHERE nan='$nan'";
+		$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
+		$result = mysqli_query($con, $query);
 
-		if ($count==1){
+		if ($result && mysqli_num_rows($result) > 0){
 			echo "nan hori beste erabiltzaile batena da";
 		}else{
 
 			//save to database
 			$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email','$password')";
 
-			mysqli_query($con, $query);
+			$query = mysqli_query($con, $query);
+			
+			if($query){
+				header("Location: db.php");
+				die;
+			}
 
-			header("Location: db.php");
-			die;
 		}
 	}
 ?>
@@ -98,5 +102,7 @@ session_start();
 
 		</form>
 	</div>
+	
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

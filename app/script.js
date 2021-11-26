@@ -1,63 +1,69 @@
+
 function email(mail) { 
-    var ema=false;
-    if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)){
-        ema=true;
+    var emaitza=false;
+    const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (res.test(mail)){
+        emaitza=true;
     } else {
         alert ("emaila txarto idatzita dago");
     }
-    return ema;
+    return emaitza;
 }
 
-function jaiotzeData(jaioData) { 
-    const jd = /[0-9]{4}[/]{1}[0-9]{2}[/]{1}[0-9]{2}/;
-    if (!jd.test(jaioData)){
-        jdKon = 0;
+function izena(izen){
+    var emaitza = false;
+    if (/[a-zA-Z]/.test(izen)){
+        emaitza=true;
     }
+    else{
+        window.alert("izena gaizki dago");
+    }
+    return emaitza;
 }
 
 function nan(dni) {
-    var zenbakia
-    var letra_una
-    var letra_muchas
-    var expresio_erregularra
-    var ema=false;
+
+    var emaitza=false;
+    expresio = /^\d{8}[a-zA-Z]$/;
    
-    expresio_erregularra = /^\d{8}[a-zA-Z]$/;
-   
-    if(expresio_erregularra.test (dni) == true){
-        zenbakia = dni.substr(0,dni.length-1);
-       letra_una = dni.substr(dni.length-1,1);
-       zenbakia = zenbakia % 23;
-       letra_muchas='TRWAGMYFPDXBNJZSQVHLCKET';
-       letra_muchas=letra_muchas.substring(zenbaki,zenbaki+1);
-      if (letra!=letra_una.toUpperCase()) {
-         window.alert ('NAN-a gaizki dago');
-       }else{
-           ema=true;
-       }
+    if(expresio.test (dni) == true){
+        var zenbakia = dni.substr(0,dni.length-1);
+        var letra = dni.substr(dni.length-1,1);
+        var letras='TRWAGMYFPDXBNJZSQVHLCKET';
+        zenbakia = zenbakia % 23;
+        letras=letras.substring(zenbakia,zenbakia+1);
+
+        if (letras==letra.toUpperCase()) {
+            emaitza=true;
+        }else{
+            window.alert ('nan-a gaizki dago');
+        }
+
     }else{
-       window.alert ('nan-a gaizki dago');
+        window.alert ('nan-a gaizki dago');
     }
-    return ema;
+
+    return emaitza;
 }
 
 function telefono(tel) {
-    var ema=false;
+    var emaitza=false;
     if(tel.length==9){
-        ema=true;
+        emaitza=true;
     }else{
         alert ("Telefonoa 9 zenbakiz osatuta egon behar da");
     }
-    return ema;
+    return emaitza;
 }
 function konprobatu() { 
 
     var dni = document.getElementById("nan").value;
-    var email = document.getElementById("email").value;
-    var jD = document.getElementById("jaiotzeData").value;
+    var emaila = document.getElementById("email").value;
     var tel = document.getElementById("telefonoa").value;
+    var iz = document.getElementById("izena").value;
     
-    if(nan(dni) && email(email) && jaiotzeData(jD) && telefono(tel)){
+    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel)){
         document.erregistroa.submit();
     }
 
