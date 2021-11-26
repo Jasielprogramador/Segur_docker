@@ -10,6 +10,7 @@ session_start();
 		//something was posted
 		$user_name = $_POST['eizena'];
 		$password = $_POST['pasahitza'];
+		echo "tatata";
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
