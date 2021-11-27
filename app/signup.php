@@ -19,9 +19,6 @@
 		$jaiotzeData = $_POST['jaiotzeData'];
 		$email = $_POST['email'];
 
-		$query = "INSERT INTO logins values ('$user_name',datetime('now','localtime'));";
-    	mysqli_query($con, $query);
-
 		$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
 		$result = mysqli_query($con, $query);
 

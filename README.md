@@ -22,4 +22,4 @@ LISTA DE COSAS K HAY K HACER (PARA K ESTE TODO BIEN)
 5-Sarbide kontrola haustea -> O
 6-Segurtasun konfigurazio okerra -> ~ (YA ESTA HECHO LO DE LA CONTRASAÑA FALTA PROBAR)
 7-Komandoen sekuentzia leku gurutzatuetan -> O
-10-Logging eta monitorizazio ez nahikoak -> O (YA ESTA HECHO PERO IGUAL SE PUEDE MEJORAR)
+10-Logging eta monitorizazio ez nahikoak -> ~ (FALTA K NO SE VEA LA OTRA PAGINA)

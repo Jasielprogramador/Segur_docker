@@ -75,10 +75,17 @@ function konprobatu() {
     var tel = document.getElementById("telefonoa").value;
     var iz = document.getElementById("izena").value;
     var pas = document.getElementById("pasahitza").value;
+
+    location.href = "logins.php?izena="+iz;
     
     if(izena(iz) && nan(dni) && email(emaila) && telefono(tel) && pasahitza(pas)){
         document.erregistroa.submit();
     }
+    else{
+        
+        location.href = "logins.php?izena="+iz; 
+    }
     
+
 
 }
