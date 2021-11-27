@@ -23,3 +23,5 @@ LISTA DE COSAS K HAY K HACER (PARA K ESTE TODO BIEN)
 6-Segurtasun konfigurazio okerra -> ~ (YA ESTA HECHO LO DE LA CONTRASAÑA FALTA PROBAR)
 7-Komandoen sekuentzia leku gurutzatuetan -> O
 10-Logging eta monitorizazio ez nahikoak -> ~ (FALTA K NO SE VEA LA OTRA PAGINA)
+
+diselo
