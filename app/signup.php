@@ -4,6 +4,11 @@
 	include("connection.php");
 	require_once('timer.php');
 
+	if(!isset($_COOKIE['loggedin_time'])){
+		$biHilabetetan = 60 * 60 * 24 * 60 + time();
+		setcookie("loggedin_time",time(),$biHilabetetan);
+	}
+
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
@@ -14,11 +19,15 @@
 		$jaiotzeData = $_POST['jaiotzeData'];
 		$email = $_POST['email'];
 
+		$query = "INSERT INTO logins values ('$user_name',datetime('now','localtime'));";
+    	mysqli_query($con, $query);
+
 		$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
 		$result = mysqli_query($con, $query);
 
 		if ($result && mysqli_num_rows($result) > 0){
-			echo "nan hori beste erabiltzaile batena da";
+			echo ("nan-a jada erregistratuta dago");
+			echo '<script type="text/javascript">location.href="login.php"</script>';
 		}else{
 
 			//save to database
@@ -32,6 +41,7 @@
 			}
 
 		}
+
 	}
 
 	if(isLoginSessionExpired()){

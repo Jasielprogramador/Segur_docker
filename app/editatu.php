@@ -61,6 +61,8 @@
 		echo "0 result";
 	}
 
+
+
 	if(isLoginSessionExpired()){
 		echo '<script type="text/javascript">location.href="logout.php"</script>';
 		exit;
@@ -172,9 +174,6 @@
    	}
 
    	document.getElementById('button3').onclick = function() {
-
-   		isbn = "<?php echo $isbn; ?>"
-
 		location.href = "ezabatu.php?isbn="+isbn;
 
    	}

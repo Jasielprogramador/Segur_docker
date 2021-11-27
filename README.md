@@ -17,9 +17,9 @@
 
 LISTA DE COSAS K HAY K HACER (PARA K ESTE TODO BIEN)
 1-sql injekzioa -> O
-2-Autentifikazioa galtzea -> X
-3-Datuak azaltzea -> X
+2-Autentifikazioa galtzea -> X (FALTA K EL MINUTO SE REINCIE)
+3-Datuak azaltzea -> X (FALTA ZIFRAR LAS CONTRASEÑAS Y CIFRAR Y DESCRIFRAR LO DEL BANCO)
 5-Sarbide kontrola haustea -> O
-6-Segurtasun konfigurazio okerra -> X
+6-Segurtasun konfigurazio okerra -> ~ (YA ESTA HECHO LO DE LA CONTRASAÑA FALTA PROBAR)
 7-Komandoen sekuentzia leku gurutzatuetan -> O
-10-Logging eta monitorizazio ez nahikoak -> X
+10-Logging eta monitorizazio ez nahikoak -> O (YA ESTA HECHO PERO IGUAL SE PUEDE MEJORAR)

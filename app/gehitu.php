@@ -32,7 +32,6 @@
 	}
 
 
-
 	if(isLoginSessionExpired()){
 		echo '<script type="text/javascript">location.href="logout.php"</script>';
 		exit;

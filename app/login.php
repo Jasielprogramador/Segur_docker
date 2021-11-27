@@ -28,6 +28,8 @@
 					setcookie("user_id",$nan,$biHilabetetan);
 					setcookie("loggedin_time",time(),$biHilabetetan);
 
+					setcookie("reset",time(),$biHilabetetan);
+
 					header("Location:db.php");
 				}
 			}

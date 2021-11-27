@@ -56,15 +56,29 @@ function telefono(tel) {
     }
     return emaitza;
 }
+
+function pasahitza(pas){
+    var expresio=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+    var emaitza = false;
+    if(expresio.test (pas) == true){
+        emaitza = true;
+    }
+    else{
+        window.alert("pasahitza txarto dago");
+    }
+    return emaitza;
+}
 function konprobatu() { 
 
     var dni = document.getElementById("nan").value;
     var emaila = document.getElementById("email").value;
     var tel = document.getElementById("telefonoa").value;
     var iz = document.getElementById("izena").value;
+    var pas = document.getElementById("pasahitza").value;
     
-    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel)){
+    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel) && pasahitza(pas)){
         document.erregistroa.submit();
     }
+    
 
 }

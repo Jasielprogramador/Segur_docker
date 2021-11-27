@@ -64,7 +64,7 @@
 		else{
 			echo "Ez da ezer aurkitu";
 		}
-			
+
 		if(isLoginSessionExpired()){
 			echo '<script type="text/javascript">location.href="logout.php"</script>';
 			exit;
@@ -87,7 +87,6 @@
 	document.getElementById('button1').onclick = function() {
 
 		location.href = "logout.php";
-
    	}
 
    	document.getElementById('button2').onclick = function() {
