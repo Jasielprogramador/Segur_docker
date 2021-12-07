@@ -63,7 +63,7 @@
 				$salmentak = $row["salmentak"];
 
 				echo "<tr><td>" . $isbn . "</td><td>" . $izena . "</td><td>" . $editoriala . "</td><td>" . $salmentak . "</td><td>" . 
-				"<a href='editatuReset.php?isbn=$isbn name=link'>editatu</a>" . "</td></tr>";
+				"<a href='editatuReset.php?isbn=$isbn'>editatu</a>" . "</td></tr>";
 				
 			}
 			

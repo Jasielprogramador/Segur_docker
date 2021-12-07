@@ -19,10 +19,11 @@ if(!isset($_COOKIE["user_id"])){
 			$izena = $_POST['izena'];
 			$editoriala = $_POST['editoriala'];
 			$salmentak = $_POST['salmentak'];
+			$nan = $_COOKIE["user_id"];
 
 			if(!empty($izena) && !empty($isbn) && !empty($editoriala) && !empty($salmentak)){
 
-				$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak)";
+				$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak,'$nan')";
 				$result = mysqli_query($con, $query);
 
 				$_COOKIE['loggedin_time'] = time();
@@ -93,7 +94,7 @@ if(!isset($_COOKIE["user_id"])){
 			<div style="font-size: 20px;margin: 10px;color: white;">Gehitu</div>
 
 			<p><label for="izena"¡>Liburuaren isbn:</label><br>
-			<input id="text" type="text" name="isbn" placeholder ="XXX-X-XXX-XXXXX-X"><br><br>
+			<input id="text" type="text" name="isbn" placeholder ="12345"><br><br>
 
 			<p><label for="izena"¡>Liburuaren izena:</label><br>
 			<input id="text" type="text" name="izena" placeholder="Liburu berria"><br><br>
