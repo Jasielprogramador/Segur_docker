@@ -1,8 +1,9 @@
 <?php
 
-	if(!isset($_COOKIE["user_id"])){
-		exit;
-	}
+if(!isset($_COOKIE["user_id"])){
+	echo '<script type="text/javascript">location.href="login.php"</script>';
+	die;
+}
 
 
 	include("connection.php");

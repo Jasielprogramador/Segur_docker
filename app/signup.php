@@ -27,7 +27,7 @@
 			}else{
 
 				//save to database
-				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email','$password')";
+				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',md5('$password')),md5(";
 
 				$query = mysqli_query($con, $query);
 				
@@ -106,6 +106,9 @@
 			<input id="email" type="text" name="email"><br><br>
 
 			<p><label for="izena">Pasahitza	:</label><br>
+			<input id="pasahitza" type="password" name="password"><br><br>
+
+			<p><label for="izena">Bakua	:</label><br>
 			<input id="pasahitza" type="password" name="password"><br><br>
 
 
