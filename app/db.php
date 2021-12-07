@@ -45,7 +45,12 @@
 		include("connection.php");
 		require_once('timer.php');
 
-		$query = "SELECT * FROM liburuak";
+		$nan = $_COOKIE['user_id'];
+
+		$query = "SELECT * FROM liburuak where nan='$nan'";
+
+		echo $query;
+
 		$result = mysqli_query($con, $query);
 
 
@@ -81,6 +86,7 @@
 	
 	<input type="submit" id="button1" value="Logout">
 	<input type="submit" id="button2" value="Gehitu">
+	<input type="submit" id="button3" value="Cancel">
 
 
 </div>
@@ -98,6 +104,14 @@
 		document.cookie = "loggedin_time ="+denbora
 		location.href = "gehitu.php";
    	}
+
+	
+   	document.getElementById('button3').onclick = function() {
+
+		var denbora = "<?php echo time();?>";
+		document.cookie = "loggedin_time ="+denbora
+		location.href = "menu.php";
+	}
 
 
 </script>

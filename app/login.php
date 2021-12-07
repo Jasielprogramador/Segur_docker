@@ -31,7 +31,7 @@
 							setcookie("user_id",$nan,$biHilabetetan);
 							setcookie("loggedin_time",time(),$biHilabetetan);
 
-							header("Location:db.php");
+							header("Location:menu.php");
 						}
 					}
 					echo "Erabiltzaile edo pasahitz okerra";
