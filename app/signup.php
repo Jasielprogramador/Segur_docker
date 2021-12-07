@@ -31,7 +31,7 @@
 			}else{
 
 				//save to database
-				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',$pasahitza,md5($bankua)";
+				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',AQUI VA LO K NO SE,md5($bankua)";
 
 				$query = mysqli_query($con, $query);
 				

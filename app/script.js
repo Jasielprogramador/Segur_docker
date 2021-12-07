@@ -78,6 +78,19 @@ function bankua(zenb){
     }
     return emaitza;
 }
+
+function data(da){
+    var expresio = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+    var emaitza = false;
+    if(expresio.test (da) == true){
+        emaitza = true;
+    }
+    else{
+        window.alert("data txarto dago");
+    }
+    return emaitza;
+}
+
 function konprobatu() {
 
     var dni = document.getElementById("nan").value;
@@ -86,8 +99,10 @@ function konprobatu() {
     var iz = document.getElementById("izena").value;
     var pas = document.getElementById("pasahitza").value;
     var bank = document.getElementById("bankua").value;
+    var d = document.getElementById("jaiotzeData").value;
     
-    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel) && pasahitza(pas) && bankua(bank)){
+    if(izena(iz) && nan(dni) && email(emaila) && data(d) && telefono(tel) && pasahitza(pas) && bankua(bank)){
+        alert("todo bien");
         document.erregistroa.submit();
     }
     else{

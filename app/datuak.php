@@ -15,12 +15,11 @@
         while($row = mysqli_fetch_array($result)){
 
             $user_name = $row["IzenAbizen"];
-            $password = $row["pasahitza"];
-            $nan = $row["nan"];
+			$nan = $row["nan"];
             $telefonoa = $row["telefonoa"];
             $jaiotzeData = $row["JaiotzeData"];
             $email = $row["email"];
-            $bankua = $row["bankua"];        
+            $bankua = $row["bankua"];      
         }
 
     }  
@@ -30,21 +29,30 @@
 
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
+
+			$query = "select id from Erregistroa where nan='$nan'";
+			$result = mysqli_query($con, $query);
+			$row = mysqli_fetch_array($result);
+			$id = $row["id"];
+
 			//something was posted
 			$user_name = $_POST['user_name'];
-			$password = $_POST['password'];
 			$nan = $_POST['nan'];
 			$telefonoa = $_POST['telefonoa'];
 			$jaiotzeData = $_POST['jaiotzeData'];
 			$email = $_POST['email'];
-            $bankua = $POST['bankua'];
+            $bankua = $_POST['bankua'];
 
 			//save to database
-			$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',$pasahitza,md5($bankua)";
+			$query = "update Erregistroa set IzenAbizen='$user_name', nan='$nan', telefonoa=$telefonoa, JaiotzeData='$jaiotzeData', email='$email', bankua=AQUI VA LO K NO SE where id=$id";
 
-			$query = mysqli_query($con, $query);
+			echo $query;
+
+			$_COOKIE['user_id'] = $nan;
+
+			$result = mysqli_query($con, $query);
 				
-			if($query){
+			if($result){
 				echo '<script type="text/javascript">location.href="menu.php"</script>';
 			}
 		}
@@ -118,9 +126,6 @@
 
 			<p><label for="email">email:</label><br>
 			<input id="email" type="text" value="<?php echo $email;?>" name="email"><br><br>
-
-			<p><label for="izena">Pasahitza	:</label><br>
-			<input id="pasahitza" type="password" value="<?php echo $password;?>" name="password"><br><br>
 
 			<p><label for="izena">Banku-kontu-zenbakia:</label><br>
 			<input id="bankua" type="bankua" value="<?php echo $bankua;?>" name="bankua"><br><br>
