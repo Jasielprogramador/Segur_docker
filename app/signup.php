@@ -4,10 +4,12 @@
 	include("connection.php");
 	require_once('timer.php');
 
-	if(isset($_POST['button1'])){
+	setcookie("login_errors",true,$biHilabetetan);
 
-		$_COOKIE['loggedin_time'] = time();
+	if(isset($_POST['button'])){ 
 
+		$biHilabetetan = 60 * 60 * 24 * 60 + time();
+	
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			//something was posted
@@ -17,6 +19,8 @@
 			$telefonoa = $_POST['telefonoa'];
 			$jaiotzeData = $_POST['jaiotzeData'];
 			$email = $_POST['email'];
+			$bankua = $POST['bankua'];
+			
 
 			$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
 			$result = mysqli_query($con, $query);
@@ -27,13 +31,14 @@
 			}else{
 
 				//save to database
-				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',md5('$password')),md5(";
+				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',$pasahitza,md5($bankua)";
 
 				$query = mysqli_query($con, $query);
 				
 				if($query){
-					header("Location: db.php");
-					die;
+					setcookie("user_id",$nan,$biHilabetetan);
+					setcookie("loggedin_time",time(),$biHilabetetan);
+					echo '<script type="text/javascript">location.href="db.php"</script>';
 				}
 
 			}
@@ -108,8 +113,8 @@
 			<p><label for="izena">Pasahitza	:</label><br>
 			<input id="pasahitza" type="password" name="password"><br><br>
 
-			<p><label for="izena">Bakua	:</label><br>
-			<input id="pasahitza" type="password" name="password"><br><br>
+			<p><label for="izena">Banku-kontu-zenbakia:</label><br>
+			<input id="bankua" type="bankua" name="bankua"><br><br>
 
 
 			<input id="button" name="button" type="submit" value="Signup" onclick="konprobatu()"><br><br>

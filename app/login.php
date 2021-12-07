@@ -30,6 +30,7 @@
 							//Definimos las cookies 
 							setcookie("user_id",$nan,$biHilabetetan);
 							setcookie("loggedin_time",time(),$biHilabetetan);
+							setcookie("login_errors",false,$biHilabetetan);
 
 							header("Location:menu.php");
 						}

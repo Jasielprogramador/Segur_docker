@@ -68,6 +68,16 @@ function pasahitza(pas){
     }
     return emaitza;
 }
+
+function bankua(zenb){
+    var emaitza=false;
+    if(zenb.length==20){
+        emaitza=true;
+    }else{
+        alert ("Banku zenbakia 20 zenbakietaz osatuta egon behar da");
+    }
+    return emaitza;
+}
 function konprobatu() {
 
     var dni = document.getElementById("nan").value;
@@ -75,12 +85,14 @@ function konprobatu() {
     var tel = document.getElementById("telefonoa").value;
     var iz = document.getElementById("izena").value;
     var pas = document.getElementById("pasahitza").value;
+    var bank = document.getElementById("bankua").value;
     
-    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel) && pasahitza(pas)){
+    if(izena(iz) && nan(dni) && email(emaila) && telefono(tel) && pasahitza(pas) && bankua(bank)){
         document.erregistroa.submit();
     }
     else{
         location.href = "logins.php?izena="+iz;
+        alert();
     }
     
 
