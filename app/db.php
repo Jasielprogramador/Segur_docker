@@ -57,9 +57,10 @@
 				$salmentak = $row["salmentak"];
 
 				echo "<tr><td>" . $isbn . "</td><td>" . $izena . "</td><td>" . $editoriala . "</td><td>" . $salmentak . "</td><td>" . 
-				"<a href='editatu.php?isbn=$isbn'>editatu</a>" . "</td></tr>";
+				"<a href='editatuReset.php?isbn=$isbn name=link'>editatu</a>" . "</td></tr>";
+				
 			}
-
+			
 		}
 		else{
 			echo "Ez da ezer aurkitu";
@@ -80,6 +81,7 @@
 	<input type="submit" id="button1" value="Logout">
 	<input type="submit" id="button2" value="Gehitu">
 
+
 </div>
 
 <script type="text/javascript">
@@ -91,6 +93,8 @@
 
    	document.getElementById('button2').onclick = function() {
 
+		var denbora = "<?php echo time();?>";
+		document.cookie = "loggedin_time ="+denbora
 		location.href = "gehitu.php";
    	}
 

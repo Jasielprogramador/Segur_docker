@@ -156,6 +156,9 @@
 	
 	document.getElementById('button1').onclick = function() {
 
+		var denbora = "<?php echo time();?>";
+		document.cookie = "loggedin_time="+denbora
+
 		isbn = "<?php echo $isbn; ?>"
 
 		izena = document.getElementById("izena").innerHTML;
@@ -170,10 +173,18 @@
 
 	document.getElementById('button2').onclick = function() {
 
+		var denbora = "<?php echo time();?>";
+		document.cookie = "loggedin_time="+denbora
+
 		location.href = "db.php";
    	}
 
    	document.getElementById('button3').onclick = function() {
+		var denbora = "<?php echo time();?>";
+		document.cookie = "loggedin_time="+denbora
+
+		isbn = "<?php echo $isbn; ?>"
+
 		location.href = "ezabatu.php?isbn="+isbn;
 
    	}

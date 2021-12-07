@@ -8,27 +8,31 @@
 	include("connection.php");
 	require_once('timer.php');
 
+	print_r($_POST);
 
-	if($_SERVER['REQUEST_METHOD'] == "POST"){
+	if(isset($_POST['button1'])){
 
-		$isbn = $_POST['isbn'];
-		$izena = $_POST['izena'];
-		$editoriala = $_POST['editoriala'];
-		$salmentak = $_POST['salmentak'];
+		if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-		if(!empty($izena) && !empty($isbn) && !empty($editoriala) && !empty($salmentak)){
+			$isbn = $_POST['isbn'];
+			$izena = $_POST['izena'];
+			$editoriala = $_POST['editoriala'];
+			$salmentak = $_POST['salmentak'];
 
-			$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak)";
-			$result = mysqli_query($con, $query);
+			if(!empty($izena) && !empty($isbn) && !empty($editoriala) && !empty($salmentak)){
 
-			header("Location: db.php");
-			exit;
-			
-	}
-	else
-		{
-			echo "Please enter some valid information!";
+				$query = "INSERT INTO liburuak VALUES ($isbn,'$izena','$editoriala',$salmentak)";
+				$result = mysqli_query($con, $query);
+
+				$_COOKIE['loggedin_time'] = time();
+				echo '<script type="text/javascript">location.href="db.php"</script>';
+				exit;
+			}
 		}
+	}	
+
+	else{
+			echo "Please enter some valid information!";
 	}
 
 
@@ -36,6 +40,12 @@
 		echo '<script type="text/javascript">location.href="logout.php"</script>';
 		exit;
 	}
+
+	if(isset($_POST['button2'])){
+		$_COOKIE['loggedin_time'] = time();
+		echo '<script type="text/javascript">location.href="db.php"</script>';
+	}
+
 		
 ?>
 
@@ -93,8 +103,9 @@
 			<p><label for="izena">Liburuaren salmenta kopurua:</label><br>
 			<input id="text" type="text" name="salmentak" placeholder="34224"><br><br>
 
+			<input id="button1" name="button1" type="submit" value="Bidali"><br><br>
 
-			<input id="button" type="submit" value="Bidali"><br><br>
+			<input id="button2" name=button2 type="submit" value="Cancel"><br><br>
 
 		</form>
 	</div>
