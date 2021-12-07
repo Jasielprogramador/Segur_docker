@@ -1,44 +1,55 @@
 <?php 
 
 	include("connection.php");
+
+	if(isset($_POST['button1'])){
 	
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$user_name = $_POST['eizena'];
-		$password = $_POST['pasahitza'];
-
-		//Cookiaren bizitza denbora definitzeko
-		$biHilabetetan = 60 * 60 * 24 * 60 + time();
-
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			//read from database
-			$query = "select * from Erregistroa where IzenAbizen = '$user_name' and pasahitza = '$password'";
-			$result = mysqli_query($con, $query);
+			//something was posted
+			$user_name = $_POST['eizena'];
+			$password = $_POST['pasahitza'];
 
-			if($result)
-			{
-				if($result && mysqli_num_rows($result) > 0)
+			//Cookiaren bizitza denbora definitzeko
+			$biHilabetetan = 60 * 60 * 24 * 60 + time();
+
+
+				if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 				{
-					$row = mysqli_fetch_array($result);
-					$nan = $row["nan"];
+					//read from database
+					$query = "select * from Erregistroa where IzenAbizen = '$user_name' and pasahitza = '$password'";
+					$result = mysqli_query($con, $query);
 
-					//Definimos las cookies 
-					setcookie("user_id",$nan,$biHilabetetan);
-					setcookie("loggedin_time",time(),$biHilabetetan);
+					if($result)
+					{
+						if($result && mysqli_num_rows($result) > 0)
+						{
+							$row = mysqli_fetch_array($result);
+							$nan = $row["nan"];
 
-					setcookie("reset",time(),$biHilabetetan);
+							//Definimos las cookies 
+							setcookie("user_id",$nan,$biHilabetetan);
+							setcookie("loggedin_time",time(),$biHilabetetan);
 
-					header("Location:db.php");
+							header("Location:db.php");
+						}
+					}
+					echo "Erabiltzaile edo pasahitz okerra";
+					
+				}else
+				{
+					echo "Erabiltzaile edo pasahitz okerra";
 				}
-			}
-			echo "Erabiltzaile edo pasahitz okerra";
-			
-		}else
-		{
-			echo "Erabiltzaile edo pasahitz okerra";
 		}
+	}
+	if(isset($_POST['button2'])){
+
+		if(isset($_COOKIE['loggedin_time'])){
+			$biHilabetetan = 60 * 60 * 24 * 60 + time();
+			setcookie("loggedin_time",time(),$biHilabetetan);
+		}
+
+		echo '<script type="text/javascript">location.href="signup.php"</script>';
 	}
 
 ?>
@@ -94,9 +105,11 @@
 			<input id="text" type="password" name="pasahitza" placeholder="Pasahitza"><br><br>
 			
 
-			<input id="button" type="submit" value="Login"><br><br>
+			<input id="button1" name="button1" type="submit" value="Login"><br><br>
 
-			<a href="signup.php">Click to Signup</a><br><br>
+			<input id="button2" name="button2" type="submit" value="Signup"><br><br>
+
+
 
 		</form>
 	</div>

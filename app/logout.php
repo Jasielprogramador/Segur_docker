@@ -1,14 +1,7 @@
 <?php
 
-	if (isset($_SERVER['HTTP_COOKIE'])) {
-		$cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-		foreach($cookies as $cookie) {
-			$parts = explode('=', $cookie);
-			$name = trim($parts[0]);
-			setcookie($name, '', time()-1000);
-			setcookie($name, '', time()-1000, '/');
-		}
-	}
+	setcookie("user_id",2,-1);
+	setcookie("loggedin_time",1,-1);
 
 	header("Location: login.php");
 ?>

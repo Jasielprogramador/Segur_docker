@@ -4,41 +4,40 @@
 	include("connection.php");
 	require_once('timer.php');
 
-	if(!isset($_COOKIE['loggedin_time'])){
-		$biHilabetetan = 60 * 60 * 24 * 60 + time();
-		setcookie("loggedin_time",time(),$biHilabetetan);
-	}
+	if(isset($_POST['button1'])){
 
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$user_name = $_POST['user_name'];
-		$password = $_POST['password'];
-		$nan = $_POST['nan'];
-		$telefonoa = $_POST['telefonoa'];
-		$jaiotzeData = $_POST['jaiotzeData'];
-		$email = $_POST['email'];
+		$_COOKIE['loggedin_time'] = time();
 
-		$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
-		$result = mysqli_query($con, $query);
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
+			//something was posted
+			$user_name = $_POST['user_name'];
+			$password = $_POST['password'];
+			$nan = $_POST['nan'];
+			$telefonoa = $_POST['telefonoa'];
+			$jaiotzeData = $_POST['jaiotzeData'];
+			$email = $_POST['email'];
 
-		if ($result && mysqli_num_rows($result) > 0){
-			echo ("nan-a jada erregistratuta dago");
-			echo '<script type="text/javascript">location.href="login.php"</script>';
-		}else{
+			$query = "SELECT * FROM Erregistroa WHERE nan='$nan'";
+			$result = mysqli_query($con, $query);
 
-			//save to database
-			$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email','$password')";
+			if ($result && mysqli_num_rows($result) > 0){
+				echo ("nan-a jada erregistratuta dago");
+				echo '<script type="text/javascript">location.href="login.php"</script>';
+			}else{
 
-			$query = mysqli_query($con, $query);
-			
-			if($query){
-				header("Location: db.php");
-				die;
+				//save to database
+				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email','$password')";
+
+				$query = mysqli_query($con, $query);
+				
+				if($query){
+					header("Location: db.php");
+					die;
+				}
+
 			}
-
 		}
-
 	}
 
 	if(isLoginSessionExpired()){
@@ -110,11 +109,13 @@
 			<input id="pasahitza" type="password" name="password"><br><br>
 
 
-			<input id="button" type="submit" value="Signup" onclick="konprobatu()"><br><br>
+			<input id="button" name="button" type="submit" value="Signup" onclick="konprobatu()"><br><br>
 
 			<a href="login.php">Click to Login</a><br><br>
 
 		</form>
 	</div>
+	
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

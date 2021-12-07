@@ -68,13 +68,7 @@ function pasahitza(pas){
     }
     return emaitza;
 }
-function konprobatu() { 
-
-    alert("ass");
-
-    var denbora = "<?php echo time();?>";
-    alert(denbora);
-	document.cookie = "loggedin_time"+denbora
+function konprobatu() {
 
     var dni = document.getElementById("nan").value;
     var emaila = document.getElementById("email").value;

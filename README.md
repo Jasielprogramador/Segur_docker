@@ -20,7 +20,7 @@ LISTA DE COSAS K HAY K HACER (PARA K ESTE TODO BIEN)
 2-Autentifikazioa galtzea -> O
 3-Datuak azaltzea -> X (FALTA ZIFRAR LAS CONTRASEÑAS Y CIFRAR Y DESCRIFRAR LO DEL BANCO)
 5-Sarbide kontrola haustea -> O
-6-Segurtasun konfigurazio okerra -> ~ (YA ESTA HECHO LO DE LA CONTRASAÑA FALTA PROBAR)
+6-Segurtasun konfigurazio okerra -> O
 7-Komandoen sekuentzia leku gurutzatuetan -> O
-10-Logging eta monitorizazio ez nahikoak -> ~ (FALTA K NO SE VEA LA OTRA PAGINA)
+10-Logging eta monitorizazio ez nahikoak -> O
 11-QUITAR TODOS LOS COMENTARIOS PUESTOS A LO LARGO DEL TRABAJO
