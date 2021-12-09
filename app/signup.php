@@ -31,14 +31,19 @@
 			}else{
 
 				//save to database
-				$query = "insert into Erregistroa values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',AQUI VA LO K NO SE,md5($bankua)";
+				$query = "insert into Erregistroa (IzenAbizen,nan,telefonoa,JaiotzeData,email,pasahitza,bankua) values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',md5('$password'),sha1('$bankua'));";
+				$result = mysqli_query($con, $query);
 
-				$query = mysqli_query($con, $query);
+				echo $query;
+
+				//guardar el hash
+				$query = "insert into bankuHash (hash,zenbakia) values (sha1('$bankua'),$bankua);";
+				mysqli_query($con, $query);
 				
-				if($query){
+				if($result){
 					setcookie("user_id",$nan,$biHilabetetan);
 					setcookie("loggedin_time",time(),$biHilabetetan);
-					echo '<script type="text/javascript">location.href="db.php"</script>';
+					header("Location:db.php");
 				}
 
 			}

@@ -93,16 +93,16 @@ function data(da){
 
 function konprobatu() {
 
+    var iz = document.getElementById("izena").value;
     var dni = document.getElementById("nan").value;
     var emaila = document.getElementById("email").value;
     var tel = document.getElementById("telefonoa").value;
-    var iz = document.getElementById("izena").value;
     var pas = document.getElementById("pasahitza").value;
     var bank = document.getElementById("bankua").value;
     var d = document.getElementById("jaiotzeData").value;
     
     if(izena(iz) && nan(dni) && email(emaila) && data(d) && telefono(tel) && pasahitza(pas) && bankua(bank)){
-        alert("todo bien");
+        alert("Dena ondo");
         document.erregistroa.submit();
     }
     else{

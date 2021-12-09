@@ -17,7 +17,7 @@
 				if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 				{
 					//read from database
-					$query = "select * from Erregistroa where IzenAbizen = '$user_name' and pasahitza = '$password'";
+					$query = "select * from Erregistroa where IzenAbizen = '$user_name' and pasahitza = md5('$password')";
 					$result = mysqli_query($con, $query);
 
 					if($result)
