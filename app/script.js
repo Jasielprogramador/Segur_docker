@@ -106,6 +106,7 @@ function konprobatu() {
         document.erregistroa.submit();
     }
     else{
+        alert("Dena ez ondo");
         location.href = "logins.php?izena="+iz;
         alert();
     }

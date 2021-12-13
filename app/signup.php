@@ -34,8 +34,6 @@
 				$query = "insert into Erregistroa (IzenAbizen,nan,telefonoa,JaiotzeData,email,pasahitza,bankua) values ('$user_name','$nan','$telefonoa','$jaiotzeData','$email',md5('$password'),sha1('$bankua'));";
 				$result = mysqli_query($con, $query);
 
-				echo $query;
-
 				//guardar el hash
 				$query = "insert into bankuHash (hash,zenbakia) values (sha1('$bankua'),$bankua);";
 				mysqli_query($con, $query);

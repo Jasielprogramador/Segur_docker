@@ -7,6 +7,7 @@
         $_COOKIE['loggedin_time'] = time();
         $query = "INSERT INTO logins (izena,data) values ('$izena',now());";
         mysqli_query($con, $query);
+        echo $query;
         echo '<script type="text/javascript">location.href="signup.php"</script>';
     }
     else{
