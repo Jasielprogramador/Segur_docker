@@ -4,12 +4,13 @@
 	include("connection.php");
 	require_once('timer.php');
 
-	setcookie("login_errors",true,$biHilabetetan);
+	$biHilabetetan = 60 * 60 * 24 * 60 + time();
+
+	setcookie("login_errors",false,$biHilabetetan);
 
 	if(isset($_POST['button'])){ 
 
-		$biHilabetetan = 60 * 60 * 24 * 60 + time();
-	
+		
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			//something was posted

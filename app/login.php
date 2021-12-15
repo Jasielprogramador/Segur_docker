@@ -2,6 +2,9 @@
 
 	include("connection.php");
 
+	$biHilabetetan = 60 * 60 * 24 * 60 + time();
+	setcookie("login_errors",true,$biHilabetetan);
+
 	if(isset($_POST['button1'])){
 	
 		if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -9,10 +12,6 @@
 			//something was posted
 			$user_name = $_POST['eizena'];
 			$password = $_POST['pasahitza'];
-
-			//Cookiaren bizitza denbora definitzeko
-			$biHilabetetan = 60 * 60 * 24 * 60 + time();
-
 
 				if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 				{
@@ -30,16 +29,17 @@
 							//Definimos las cookies 
 							setcookie("user_id",$nan,$biHilabetetan);
 							setcookie("loggedin_time",time(),$biHilabetetan);
-							setcookie("login_errors",false,$biHilabetetan);
 
-							header("Location:menu.php");
+							echo '<script type="text/javascript">location.href="menu.php"</script>';
 						}
 					}
 					echo "Erabiltzaile edo pasahitz okerra";
 					
 				}else
-				{
+				{	
 					echo "Erabiltzaile edo pasahitz okerra";
+					echo '<script type="text/javascript">location.href="logins.php?izena=document.getElementsByName("eizena").value"</script>';
+					
 				}
 		}
 	}
@@ -109,8 +109,6 @@
 			<input id="button1" name="button1" type="submit" value="Login"><br><br>
 
 			<input id="button2" name="button2" type="submit" value="Signup"><br><br>
-
-
 
 		</form>
 	</div>
