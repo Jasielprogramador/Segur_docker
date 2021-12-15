@@ -49,8 +49,6 @@
 
 		$query = "SELECT * FROM liburuak where nan='$nan'";
 
-		echo $query;
-
 		$result = mysqli_query($con, $query);
 
 

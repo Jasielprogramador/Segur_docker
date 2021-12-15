@@ -9,8 +9,6 @@ if(!isset($_COOKIE["user_id"])){
 	include("connection.php");
 	require_once('timer.php');
 
-	print_r($_POST);
-
 	if(isset($_POST['button1'])){
 
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
