@@ -2,6 +2,8 @@
 
 	include("connection.php");
 
+	ob_start();
+
 	$biHilabetetan = 60 * 60 * 24 * 60 + time();
 	setcookie("login_errors",true,$biHilabetetan);
 
@@ -33,12 +35,12 @@
 							echo '<script type="text/javascript">location.href="menu.php"</script>';
 						}
 					}
-					echo "Erabiltzaile edo pasahitz okerra";
-					
+
+					header("Location:logins.php?izena=$user_name");
+							
 				}else
-				{	
-					echo "Erabiltzaile edo pasahitz okerra";
-					echo '<script type="text/javascript">location.href="logins.php?izena=document.getElementsByName("eizena").value"</script>';
+				{		
+					header("Location:logins.php?izena=$user_name");
 					
 				}
 		}
