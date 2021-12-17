@@ -4,9 +4,7 @@
 	include("connection.php");
 	require_once('timer.php');
 
-	$biHilabetetan = 60 * 60 * 24 * 60 + time();
-
-	setcookie("login_errors",false,$biHilabetetan);
+	
 
 	if(isset($_POST['button'])){ 
 
@@ -40,8 +38,12 @@
 				mysqli_query($con, $query);
 				
 				if($result){
+					$biHilabetetan = 60 * 60 * 24 * 60 + time();
 					setcookie("user_id",$nan,$biHilabetetan);
 					setcookie("loggedin_time",time(),$biHilabetetan);
+					
+
+					setcookie("login_errors",false,$biHilabetetan);
 					header("Location:db.php");
 				}
 

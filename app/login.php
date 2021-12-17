@@ -23,6 +23,7 @@
 
 					if($result)
 					{
+
 						if($result && mysqli_num_rows($result) > 0)
 						{
 							$row = mysqli_fetch_array($result);
@@ -35,9 +36,10 @@
 							echo '<script type="text/javascript">location.href="menu.php"</script>';
 						}
 					}
-
-					header("Location:logins.php?izena=$user_name");
-							
+					else{
+						header("Location:logins.php?izena=$user_name");
+					}
+		
 				}else
 				{		
 					header("Location:logins.php?izena=$user_name");
