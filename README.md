@@ -1,7 +1,7 @@
 
 # Web-a
 
-## Egileak: Janire Harana, Eneko Perez eta Asier Rosa
+## Egileak: Janire Arana, Eneko Perez eta Asier Rosa
 
 1. `git clone https://github.com/Jasielprogramador/Segur_docker.git`
 2. `cd Segur_docker`
